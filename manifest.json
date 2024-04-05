@@ -1,0 +1,36 @@
+{
+    "name":"add BookMark",
+    "description": "add BookMark",
+    "version":"1.0",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+          "matches": [
+            "<all_urls>"
+          ],
+          "js": [
+            "content-script.js"
+          ],
+          "run_at": "document_idle"
+        }
+      ],
+    "icons": {
+        "16": "icons/icons.png",
+        "48": "icons/icons.png",
+        "128": "icons/icons.png"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage",
+        "downloads"
+    ],
+    "action":{
+        "default_popup":"popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+    
+    
+}
