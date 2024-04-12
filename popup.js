@@ -1,6 +1,8 @@
 let srcList;
 const getImageBtn = document.getElementById('get');
 
+const baseUrl = '114.132.41.210:3000';
+
 
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     var url = tabs[0].url;
@@ -53,7 +55,7 @@ function addTag(tag) {
 }
 
 var tagbox = document.getElementById('tagbox');
-const getTagsUrl = 'http://localhost:3000/getTags';
+const getTagsUrl = `http://${baseUrl}/getTags`;
 fetch(getTagsUrl).then((res) => {
 
     return res.json();
@@ -90,7 +92,7 @@ createBtn.addEventListener('click', async () => {
         tags: taginput.value
     }
 
-    const createUrl = 'http://localhost:3000/insert';
+    const createUrl = `http://${baseUrl}/insert`;
     const res = await fetch(createUrl, {
         method: 'POST',
         headers: {
